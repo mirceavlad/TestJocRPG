@@ -18,5 +18,8 @@ public class Main {
        //System.out.println("Comenzile dumneavoastra sunt: Stats, exit ");
        //player.citire_cmd();
         //player.openChest();
+        Harta harta = new Harta();
+        harta.Mapare();
+        harta.Afisare();
     }}
 
