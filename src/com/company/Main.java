@@ -21,5 +21,6 @@ public class Main {
         Harta harta = new Harta();
         harta.Mapare();
         harta.Afisare();
+        harta.Navigare();
     }}
 

@@ -61,9 +61,9 @@ public class Player {
                 if (villain1.currenthealth > 0)
                     villain1.Attack(this);
                 else break;
-            }
-            s = new Scanner(System.in);
+            }s = new Scanner(System.in);
             comanda = s.nextLine();
+
         }
     }
     void citire_cmd()
