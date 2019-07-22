@@ -35,7 +35,9 @@ public class villain {
 
     {
         try {
-            s = new Scanner(new File("src/com/company/numevil"));
+            String localDir = System.getProperty("user.dir");
+            File file = new File(localDir + "/src/com/company/numevil");
+            s = new Scanner(file);
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
