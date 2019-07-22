@@ -1,4 +1,8 @@
-package com.company;
+package src.com.company;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.lang.reflect.Array;
+import java.util.*;
 import java.util.Random;
 
 public class villain {
@@ -8,19 +12,40 @@ public class villain {
     private int currentarmor;
     private int attack;
     private int currentattack;
+    private String nume;
     public void init(int health, int armors, int attacks)
     {
         maxhealth=health;
         currenthealth=health;
-        this.armor=armors;
+        armor=armors;
         currentarmor=armors;
-        this.attack=attacks;
+        attack=attacks;
         currentattack=attacks;
     }
     public void attacked(int AttNr)
     {
         Random rand = new Random();
-        int dmg_primit = rand.nextInt(AttNr)+1;
+        int dmg_primit = rand.nextInt(AttNr)+1-currentarmor;
         currenthealth-=dmg_primit;
+        System.out.println(this.nume+" a fost atacat pentru "+dmg_primit+" puncte");
+        if(currenthealth<=0)
+            System.out.println(this.nume+" a fost eliminat");
     }
+    Scanner s;
+
+    {
+        try {
+            s = new Scanner(new File("src/com/company/numevil"));
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        ArrayList<String> list = new ArrayList<String>();
+        while(s.hasNext()){
+            list.add(s.next());
+        }
+        s.close();
+        Random rnume = new Random();
+        nume=list.get(rnume.nextInt(list.size()));
+    }
+
 }
