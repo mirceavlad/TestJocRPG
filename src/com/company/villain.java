@@ -6,15 +6,17 @@ import java.util.*;
 import java.util.Random;
 
 public class villain {
+    private static int villainnr=0;
     private int maxhealth;
-    private int currenthealth;
+    public int currenthealth;
     private int armor;
     private int currentarmor;
     private int attack;
     private int currentattack;
-    private String nume;
+    private String name;
     public void init(int health, int armors, int attacks)
     {
+        villainnr++;
         maxhealth=health;
         currenthealth=health;
         armor=armors;
@@ -25,11 +27,12 @@ public class villain {
     public void attacked(int AttNr)
     {
         Random rand = new Random();
-        int dmg_primit = rand.nextInt(AttNr)+1-currentarmor;
+        int dmg_primit = rand.nextInt(AttNr)+3-this.currentarmor;
         currenthealth-=dmg_primit;
-        System.out.println(this.nume+" a fost atacat pentru "+dmg_primit+" puncte");
-        if(currenthealth<=0)
-            System.out.println(this.nume+" a fost eliminat");
+        System.out.println(this.name+" a fost atacat pentru "+dmg_primit+" puncte");
+        if(currenthealth<=0) {
+            System.out.println(this.name + " a fost eliminat");
+        }
     }
     Scanner s;
 
@@ -46,8 +49,13 @@ public class villain {
             list.add(s.next());
         }
         s.close();
-        Random rnume = new Random();
-        nume=list.get(rnume.nextInt(list.size()));
+        Random rname = new Random();
+        name=list.get(rname.nextInt(list.size()));
     }
+    public void Attack(Player x){
+        x.attacked(currentattack);
+    }
+
+
 
 }
