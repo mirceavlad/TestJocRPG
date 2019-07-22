@@ -14,8 +14,9 @@ public class Main {
         player.start();
         villain villain1 = new villain();
         villain1.init(30,0,5);
-        player.Bataie(villain1);
-        System.out.println("Comenzile dumneavoastra sunt: Stats, exit ");
-        player.citire_cmd();
+        //player.Bataie(villain1);
+       //System.out.println("Comenzile dumneavoastra sunt: Stats, exit ");
+       //player.citire_cmd();
+        //player.openChest();
     }}
 

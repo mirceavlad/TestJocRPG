@@ -2,29 +2,31 @@ package src.com.company;
 
 import java.util.Random;
 import java.util.Scanner;
+import java.util.ArrayList;
 
 public class Player {
     private static String name;
     public int maxhealth;
-    private int currenthealth;
-    private int armor;
-    private int currentarmor;
+    public int currenthealth;
+    public int armor;
+    public int currentarmor;
     private int attackinit;
-    private int attack;
-    private int currentattack;
+    public int attack;
+    ArrayList<String> inventory = new ArrayList<String>();
 
     public void stats(){
         System.out.println("HP: "+currenthealth+"/"+maxhealth);
         System.out.println("Armura: "+currentarmor+"/"+armor);
-        System.out.println("Atac: "+currentattack+"/"+attack);
+        System.out.println("Atac: "+attack);
+        System.out.println("Inventar: "+ inventory);
     }
     public void start(){
         maxhealth=50;
         currenthealth=maxhealth;
         armor=0;
         currentarmor=armor;
-        attack=10;
-        currentattack=attack;
+        attackinit=10;
+        attack=attackinit;
         System.out.println("Introduceti numele jucatorului: ");
         Scanner s= new Scanner(System.in);
         name=s.nextLine();
@@ -33,7 +35,7 @@ public class Player {
 
     }
     public void Attack(villain x){
-        x.attacked(currentattack);
+        x.attacked(attack);
     }
     public void attacked(int AttNr)
     {
@@ -44,10 +46,10 @@ public class Player {
         if(currenthealth<=0)
             System.out.println("Ai fost eliminat");
     }
-    public void EquipSword(common_sword sword){
+    public void EquipCommonSword(common_sword sword){
         attack=attackinit;
-        attackinit+=sword.attack;
-        currentattack=attack;
+        attack+=sword.attack;
+        inventory.add(sword.name);
     }
     public void Bataie(villain villain1){
         System.out.println("Scrieti atac pentru a ataca si exit pentru a iesi: ");
@@ -72,7 +74,33 @@ public class Player {
         if(comanda.compareTo("Stats")==0){
             this.stats();
         }
-        comanda=s.nextLine();
         }
-}}
+}
+    void openChest()
+    {
+        System.out.println("In fata ta este un chest. Scrie open pentru a-l deschide");
+        Scanner s = new Scanner(System.in);
+        String comanda=s.nextLine();
+        common_sword swd = new common_sword();
+        if(comanda.compareTo("open")==0)
+        {
+            System.out.println("Sabia ta are "+(attack-attackinit)+" puncte de dmg, cea din chest are "+ swd.attack);
+            System.out.println("Scrie 1 pentru a o pastra pe prima si 2 pentru a o schimba");
+            comanda=s.nextLine();
+            if(comanda.compareTo("1")==0)
+            {
+                System.out.println("Ai inchis chestul. ");
+            }
+            else if(comanda.compareTo("2")==0)
+            {
+
+                System.out.println("Ai luat sabia si ai inchis chestul");
+                swd.numire();
+                this.EquipCommonSword(swd);
+                this.stats();
+            }
+        }
+
+    }
+}
 
