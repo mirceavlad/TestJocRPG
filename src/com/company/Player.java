@@ -12,7 +12,7 @@ public class Player {
         currenthealth=maxhealth;
         armor=0;
         currentarmor=armor;
-        attack=3;
+        attack=10;
         currentattack=attack;
     }
     public void Attack(villain x){

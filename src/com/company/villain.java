@@ -21,5 +21,6 @@ public class villain {
     {
         Random rand = new Random();
         int dmg_primit = rand.nextInt(AttNr)+1;
+        currenthealth-=dmg_primit;
     }
 }
