@@ -1,6 +1,7 @@
 package src.com.company;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Harta {
@@ -9,6 +10,7 @@ public class Harta {
     public int j1 = 5;
 
     public void Mapare() {
+        Random rand = new Random();
         for (int i = 0; i <= 9; i++)
             for (int j = 0; j <= 9; j++) {
                 a[i][j] = "-";
@@ -33,6 +35,8 @@ public class Harta {
         return 0;
     }
     public void Navigare(){
+        this.Mapare();
+        this.Afisare();
         Player p = new Player();
         p.start();
         System.out.println("Mergi pe harta ");
