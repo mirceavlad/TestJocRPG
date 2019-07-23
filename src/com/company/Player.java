@@ -52,6 +52,7 @@ public class Player {
         inventory.add(sword.name);
     }
     public void Bataie(villain villain1){
+        System.out.println("Pe inamicul tau il cheama "+villain1.name);
         System.out.println("Scrieti atac pentru a ataca si exit pentru a iesi: ");
         Scanner s = new Scanner(System.in);
         String comanda=s.nextLine();

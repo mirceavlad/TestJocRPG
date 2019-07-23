@@ -11,14 +11,30 @@ public class Harta {
 
     public void Mapare() {
         Random rand = new Random();
+
         for (int i = 0; i <= 9; i++)
             for (int j = 0; j <= 9; j++) {
                 a[i][j] = "-";
             }
-        a[5][8] = "c";
-        a[4][3] = "v";
-        a[2][7] = "v";
-        a[9][5] = "p";
+        int k=rand.nextInt(7)+1;
+            for(int l=0;l<k;l++)
+            {
+                int i=rand.nextInt(9)+1;
+                int j=rand.nextInt(9)+1;
+                a[i][j]="v";
+            }
+         k=rand.nextInt(3)+1;
+        for(int l=0;l<k;l++)
+        {
+            int i=rand.nextInt(9)+1;
+            int j=rand.nextInt(9)+1;
+            a[i][j]="c";
+        }
+        int i=rand.nextInt(9)+1;
+        int j=rand.nextInt(9)+1;
+        a[i][j] = "p";
+        i1=i;
+        j1=j;
     }
 
     public void Afisare() {

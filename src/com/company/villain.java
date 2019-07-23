@@ -13,7 +13,7 @@ public class villain {
     private int currentarmor;
     private int attack;
     private int currentattack;
-    private String name;
+    public String name;
     public void init(int health, int armors, int attacks)
     {
         villainnr++;
